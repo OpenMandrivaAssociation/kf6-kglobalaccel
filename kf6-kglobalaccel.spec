@@ -35,6 +35,7 @@ Global desktop keyboard shortcuts
 Summary: Global desktop keyboard shortcuts
 Group: System/Libraries
 Requires: %{name} = %{EVRD}
+Requires: kglobalaccel-runtime = %{EVRD}
 
 %description -n %{libname}
 Global desktop keyboard shortcuts
@@ -48,6 +49,16 @@ Requires: %{libname} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 Global desktop keyboard shortcuts
+
+# This is split out so it can be shared with KF5.
+# Once we drop KF5, this can be merged back into the
+# main package.
+%package -n kglobalaccel-runtime
+Summary: Runtime files shared between kglobalaccel 5 and 6
+Group: System/Libraries
+
+%description -n kglobalaccel-runtime
+Runtime files shared between kglobalaccel 5 and 6
 
 %prep
 %autosetup -p1 -n kglobalaccel-%{?git:master}%{!?git:%{version}}
@@ -67,6 +78,8 @@ Global desktop keyboard shortcuts
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kglobalaccel.*
+
+%files -n kglobalaccel-runtime
 %{_datadir}/dbus-1/interfaces/kf5_org.kde.KGlobalAccel.xml
 %{_datadir}/dbus-1/interfaces/kf5_org.kde.kglobalaccel.Component.xml
 
