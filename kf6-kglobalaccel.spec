@@ -1,10 +1,10 @@
 %define libname %mklibname KF6GlobalAccel
 %define devname %mklibname KF6GlobalAccel -d
-%define git 20230811
+%define git 20230812
 
 Name: kf6-kglobalaccel
 Version: 5.240.0
-Release: %{?git:0.%{git}.}2
+Release: %{?git:0.%{git}.}1
 Source0: https://invent.kde.org/frameworks/kglobalaccel/-/archive/master/kglobalaccel-master.tar.bz2#/kglobalaccel-%{git}.tar.bz2
 Summary: Global desktop keyboard shortcuts
 URL: https://invent.kde.org/frameworks/kglobalaccel
@@ -78,13 +78,11 @@ Runtime files shared between kglobalaccel 5 and 6
 
 %find_lang %{name} --all-name --with-qt --with-html
 
-rm -f %{buildroot}%{_datadir}/dbus-1/interfaces/kf5_org.kde.KGlobalAccel.xml
-
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kglobalaccel.*
 
 %files -n kglobalaccel-runtime
-#%{_datadir}/dbus-1/interfaces/kf5_org.kde.KGlobalAccel.xml
+%{_datadir}/dbus-1/interfaces/kf5_org.kde.KGlobalAccel.xml
 %{_datadir}/dbus-1/interfaces/kf5_org.kde.kglobalaccel.Component.xml
 
 %files -n %{devname}
