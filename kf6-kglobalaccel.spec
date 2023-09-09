@@ -1,6 +1,6 @@
 %define libname %mklibname KF6GlobalAccel
 %define devname %mklibname KF6GlobalAccel -d
-%define git 20230901
+%define git 20230909
 
 Name: kf6-kglobalaccel
 Version: 5.240.0
@@ -37,7 +37,6 @@ Global desktop keyboard shortcuts
 Summary: Global desktop keyboard shortcuts
 Group: System/Libraries
 Requires: %{name} = %{EVRD}
-Requires: kglobalaccel-dbus-interfaces = %{EVRD}
 
 %description -n %{libname}
 Global desktop keyboard shortcuts
@@ -51,16 +50,6 @@ Requires: %{libname} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 Global desktop keyboard shortcuts
-
-# This is split out so it can be shared with KF5.
-# Once we drop KF5, this can be merged back into the
-# main package.
-%package -n kglobalaccel-dbus-interfaces
-Summary: D-Bus interface files for kglobalaccel
-Group: System/Libraries
-
-%description -n kglobalaccel-dbus-interfaces
-D-Bus interface files for kglobalaccel
 
 %prep
 %autosetup -p1 -n kglobalaccel-%{?git:master}%{!?git:%{version}}
@@ -80,10 +69,7 @@ D-Bus interface files for kglobalaccel
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kglobalaccel.*
-
-%files -n kglobalaccel-dbus-interfaces
-%{_datadir}/dbus-1/interfaces/kf5_org.kde.KGlobalAccel.xml
-%{_datadir}/dbus-1/interfaces/kf5_org.kde.kglobalaccel.Component.xml
+%{_datadir}/dbus-1/interfaces/kf6_*
 
 %files -n %{devname}
 %{_includedir}/KF6/KGlobalAccel
