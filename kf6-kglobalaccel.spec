@@ -1,6 +1,6 @@
 %define libname %mklibname KF6GlobalAccel
 %define devname %mklibname KF6GlobalAccel -d
-%define git 20230924
+%define git 20230927
 
 Name: kf6-kglobalaccel
 Version: 5.240.0
