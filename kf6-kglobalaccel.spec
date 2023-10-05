@@ -1,6 +1,6 @@
 %define libname %mklibname KF6GlobalAccel
 %define devname %mklibname KF6GlobalAccel -d
-%define git 20230927
+%define git 20231005
 
 Name: kf6-kglobalaccel
 Version: 5.240.0
@@ -74,7 +74,6 @@ Global desktop keyboard shortcuts
 %files -n %{devname}
 %{_includedir}/KF6/KGlobalAccel
 %{_libdir}/cmake/KF6GlobalAccel
-%{_qtdir}/mkspecs/modules/qt_KGlobalAccel.pri
 %{_qtdir}/doc/KF6GlobalAccel.*
 
 %files -n %{libname}
